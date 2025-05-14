@@ -52,7 +52,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="flex justify-center items-center gap-[71px] bg-[#0a0d17]">
+    <div className="flex justify-center items-center gap-[71px] bg-[#0a0d17] min-h-screen">
       <form
         className="flex flex-col justify-center bg-[#0A0D170D] p-6 rounded w-[506px] h-[536px]"
         onSubmit={handleSubmit(handleForm)}
