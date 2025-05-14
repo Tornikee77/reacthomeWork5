@@ -39,9 +39,6 @@ const Auth = () => {
       })
       .then((responseData) => {
         localStorage.setItem("userData", JSON.stringify(data));
-        navigate("/successfully");
-        console.log(responseData);
-        reset();
       })
       .catch((errors) => {
         console.log(errors);
@@ -54,7 +51,7 @@ const Auth = () => {
   return (
     <div className="flex justify-center items-center gap-[71px] bg-[#0a0d17] min-h-screen">
       <form
-        className="flex flex-col justify-center bg-[#0A0D170D] p-6 rounded w-[506px] h-[536px]"
+        className="flex flex-col justify-center items-center bg-[#0A0D170D] p-6 rounded w-[506px] h-[536px]"
         onSubmit={handleSubmit(handleForm)}
         noValidate
       >
@@ -135,24 +132,23 @@ const Auth = () => {
           </p>
         </div>
         <div>
-          <textarea
-            className="px-2 py-2 border border-[#FFFFFF33] rounded-[5px] outline-none w-[433px] min-h-[109px] text-[#FFFFFF99] resize-none"
-            name=""
-            id=""
+          <input
+            classname="px-3 py-2 border border-[#FFFFFF33] rounded outline-none w-[433px] text-[#FFFFFF99] "
+            type="textarea"
             placeholder="message"
-          ></textarea>
+            {...register("textarea")}
+          />
         </div>
-        <div>
-          <button
-            disabled={isSubmitting}
-            className="bg-[var(--color-black)] m-auto px-4 py-2 w-[426px] text-[white] cursor-pointer"
-            type="submit"
-          >
-            {isSubmitting ? "Sending.." : "Create Account"}
-          </button>
 
-          <div>{errors.root && <p>{errors.root.message}</p>}</div>
-        </div>
+        <button
+          disabled={isSubmitting}
+          className="bg-[#763AF5] mt-[14px] px-4 py-2 rounded w-[428px] text-[white] cursor-pointer"
+          type="submit"
+        >
+          {isSubmitting ? "Sending.." : "Create Account"}
+        </button>
+
+        <div>{errors.root && <p>{errors.root.message}</p>}</div>
       </form>
       <div>
         <img
